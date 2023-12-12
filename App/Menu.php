@@ -6,7 +6,7 @@ class Menu
 {
     public function topMenu()
     {
-        $base = "http://localhost/uts_oop/index.php?target=";
+        $base = "http://localhost/Sitikhoiriyah_2021503062_UTS_SMT_5/index.php?target=";
         $data = [
             array('text' => 'Beranda', 'link' => $base . 'beranda'),
             array('text' => 'Buku Induk', 'link' => $base . 'bukuinduk'),

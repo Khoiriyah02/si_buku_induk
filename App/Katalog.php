@@ -35,7 +35,7 @@ class Katalog
             $res .= '<tr>
                                 <th scope="row">' . $no . '</th>
                                 <td>' . $r['judul'] . '</td>
-                                <td>' . $r['gambar'] . '</td>
+                                <td><img src="' . $r['gambar'] . '" width="50"></td>
                                 <td>' . $r['pengarang'] . '</td>
                                 <td>' . $r['penerbit'] . '</td>
                                 <td>' . $r['deskripsi'] . '</td>
@@ -66,7 +66,7 @@ class Katalog
                     </div>
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar</label>
-                        <input type="text" class="form-control" id="gambar" name="gambar" value="' . $r['gambar'] . '">
+                        <input type="file" class="form-control" id="gambar" name="gambar" value="' . $r['gambar'] . '">
                     </div>
                     <div class="mb-3">
                         <label for="pengarang" class="form-label">Pengarang</label>

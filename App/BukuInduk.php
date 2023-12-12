@@ -389,7 +389,7 @@ class BukuInduk
     public function tambah_katalog()
     {
         $data = $this->db->table('katalog')->get()->resultArray();
-        $res = '<form action="?target=bukuinduk&act=simpan_katalog" method="post" >
+        $res = '<form action="?target=bukuinduk&act=simpan_katalog" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="judul" class="form-label">Judul</label>
                         <input type="text" class="form-control" id="judul" name="judul">
@@ -419,7 +419,7 @@ class BukuInduk
     public function simpan_katalog()
     {
         $judul = $_POST['judul'];
-        $gambar = $_POST['gambar'];
+        $gambar = $this->upload($_POST['gambar']);
         $pengarang = $_POST['pengarang'];
         $penerbit = $_POST['penerbit'];
         $deskripsi = $_POST['deskripsi'];
@@ -433,5 +433,14 @@ class BukuInduk
 
         );
         return $this->db->table('katalog')->insert($data);
+    }
+
+    public function upload()
+    {
+        $gambar = $_FILES['gambar']['name'];
+        $tmp_name = $_FILES['gambar']['tmp_name'];
+
+        move_uploaded_file($tmp_name, 'img/' . $gambar);
+        return $gambar;
     }
 }
